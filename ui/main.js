@@ -1,9 +1,9 @@
 console.log('Loaded!');
 
 //change the text of main-text div
-var element = document.getElementById('main-text');
+//var element = document.getElementById('main-text');
 
-element.innerHTML='New Content from Client Side Java Script';
+//element.innerHTML='New Content from Client Side Java Script';
 
 //Moving the image i.e. Animation
 var img = document.getElementById('madi');
