@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles = {
-    'articl-one' : {
+    'article-one' : {
         title: 'Article One | Fazlur Rahman',
         heading: 'Article One',
         date: 'Mar 9, 2018',
