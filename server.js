@@ -5,6 +5,28 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articleOne ={
+    title: 'Article One | Fazlur Rahman',
+    heading: 'Article One',
+    date: 'Mar 9, 2018',
+    content: `<p>
+                    This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page
+                </p>
+                <p>
+                    This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page
+                </p>
+                <p>
+                    This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page
+                </p>`
+    
+}; 
+
+var htmlTemplate =`
+
+
+
+`;
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
