@@ -4,18 +4,32 @@ var counter = 0;
 
 button.onclick = function(){
 
+    //Make the request to the counter endpoint
+    var request = new XMLHttpRequest();
 
-//Make the request to the counter endpoint
 
+    //capture the response and store it in a variable
+    request.onreadystatechange = function() {
+        //Take some action
+        if(request.status == 200){
+            var counter = request.responseText;
+            var span = document.getElementById('count');
+            span.innerHTML = counter.toString();
+        }
+    }
+    //Not yet done
+    };
+    //Make the request
+    request.open('GET','http;//http://fazlursmailbox.imad.hasura-app.io/counter',true);
+    request.send(null);
+    
 
+};
 
-//capture the response and store it in a variable
-
-//Render the variable to the correct span
+/*//Render the variable to the correct span
 counter = counter + 1;
 var span = document.getElementById('count');
-span.innerHTML = counter.toString();
-};
+span.innerHTML = counter.toString();*/
 
 
 
