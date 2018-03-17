@@ -15,15 +15,13 @@ button.onclick = function(){
             var counter = request.responseText;
             var span = document.getElementById('count');
             span.innerHTML = counter.toString();
+            
         }
-    }
-    //Not yet done
+    };
     };
     //Make the request
-    request.open('GET','http;//http://fazlursmailbox.imad.hasura-app.io/counter',true);
+    request.open('GET','http://fazlursmailbox.imad.hasura-app.io/counter',true);
     request.send(null);
-    
-
 };
 
 /*//Render the variable to the correct span
