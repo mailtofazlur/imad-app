@@ -18,17 +18,10 @@ button.onclick = function(){
             
         }
     };
-    };
     //Make the request
     request.open('GET','http://fazlursmailbox.imad.hasura-app.io/counter',true);
     request.send(null);
 };
-
-/*//Render the variable to the correct span
-counter = counter + 1;
-var span = document.getElementById('count');
-span.innerHTML = counter.toString();*/
-
 
 
 
@@ -64,4 +57,9 @@ function moveRight(){
 }
 img.onclick = function() {
     var interval = setInterval(moveRight, 50);
-}; */
+};
+    //Render the variable to the correct span
+    counter = counter + 1;
+    var span = document.getElementById('count');
+    span.innerHTML = counter.toString();
+*/
