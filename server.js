@@ -1,15 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool = required('pg').Pool;
 
-var config = {
-    user: 'fazlursmailbox',
-    database: 'fazlursmailbox',
-    host: 'db.imad.hasura-app.io',
-    port: '5432',
-    password: process.env.DB_PASSWORD
-};
 var app = express();
 app.use(morgan('combined'));
 
@@ -46,7 +38,6 @@ var articles = {
                         </p>`
     }
 };
-
 function createTemplate(data){
     var title = data.title;
     var date = data.date;
@@ -89,18 +80,6 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var pool = new Pool(config);
-app.get('/test-db',function(req,res){
-    //make a select request
-    //return a response with the results
-    pool.query('SELECT * FROM test',function(err,result){
-        if(err){
-            res.status(500).send(err.toString());
-        } else {
-            res.send(JSON.stringyfy(result));
-        }
-    });
-});
  var counter = 0;
  app.get('/counter', function(req, res){
  counter = counter + 1;
@@ -113,6 +92,24 @@ app.get('/:articleName',function(req,res){
  });
  
 
+
+/*app.get('/article-one',function(req,res){
+ res.send(createTemplate(articleOne));
+ // res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+//    res.send('Article one is requested and will be served here');
+});
+app.get('/article-two',function(req,res){
+res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+ 
+    
+    //res.send('Article two is requested and will be served here');
+});
+app.get('/article-three',function(req,res){
+  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+    
+    
+    //res.send('Article three is requested and will be served here');
+}); */
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
