@@ -14,7 +14,7 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
+/*var articles = {
     'article-one' : {
         title: 'Article One | Fazlur Rahman',
         heading: 'Article One',
@@ -46,7 +46,7 @@ var articles = {
                             This is the article content for my Third web page.Which is also my third Webpage Without using the Separate Html File.
                         </p>`
     }
-};
+};*/
 function createTemplate(data){
     var title = data.title;
     var date = data.date;
