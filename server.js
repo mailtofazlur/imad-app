@@ -121,7 +121,7 @@ app.get('/test-db',function (req, res){
  res.send(counter.toString());
  });
 
-/*app.get('/articles/:articleName',function(req,res){
+app.get('/articles/:articleName',function(req,res){
     var articleName = req.params.articleName;
     
     pool.query("SELECT * FROM article WHERE tittle = '" + req.params.articleName + "'", function(err,result){
@@ -139,9 +139,6 @@ app.get('/test-db',function (req, res){
         }
     });
  });
- */
- 
-
 
 /*app.get('/article-one',function(req,res){
  res.send(createTemplate(articleOne));
