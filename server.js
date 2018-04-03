@@ -2,7 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
-var cryto = required('crypto');
+var crypto = required('crypto');
 
 var config = {
     user: 'fazlursmailbox',
@@ -97,7 +97,7 @@ function hash(input, salt){
 }
 
 app.get('/hash/:input',function(req, res){
-   var hashString = hash(req.params.input,'this-is-some-random-string');
+   var hashString = hash(req.params.input, 'this-is-some-random-string');
    res.send(hashedString);
 });
 
