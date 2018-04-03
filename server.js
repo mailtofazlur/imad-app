@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
+var cryto = required('crypto');
 
 var config = {
     user: 'fazlursmailbox',
@@ -20,7 +21,7 @@ app.use(morgan('combined'));
         heading: 'Article One',
         date: 'Mar 9, 2018',
         content: `<p>
-                        This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page
+                        This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article  content for my first web page.This is the article content for my first web page.This is the article content for my first web page
                     </p>
                     <p>
                         This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page.This is the article content for my first web page
@@ -87,6 +88,17 @@ return htmlTemplate;
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+
+function hash(input, salt){
+    var hashed = crypto.pbkdf2Sync(input, salt, 1000,512, 'sha512');
+    return hashed.toString('hex');
+}
+
+app.get('/hash/:input',function(req, res){
+   var hashString = hash(req.params.input,'this-is-some-random-string');
+   res.send(hashedString);
 });
 
 var pool = new Pool(config);
