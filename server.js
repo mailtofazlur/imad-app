@@ -50,7 +50,7 @@ app.use(bodyParser.json());
                         </p>`
     }
 };*/
-/*function createTemplate(data){
+function createTemplate(data){
     var title = data.title;
     var date = data.date;
     var heading = data.heading;
@@ -86,19 +86,19 @@ var htmlTemplate =`
     </html>
     `;
 return htmlTemplate;
-} */
+}
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 
-function hash(input, salt){
+function hash(input, salt){//How do we create a hash
     var hashed = crypto.pbkdf2Sync(input, salt, 1000,512, 'sha512');
     return ["pbkdf2", "1000", salt, hashed.toString('hex')].join('$');
 }
 
-app.get('/hash/:input',function(req, res){
+app.get('/hash/:input', function(req, res){
    var hashedString = hash(req.params.input, 'this-is-some-random-string');
    res.send(hashedString);
 });
@@ -133,7 +133,7 @@ app.post('/login', function(req, res){
        } else{
            //Match the password
            var dbString = result.rows[0].password;
-           var salt = dbstring.split('$')[2];
+           var salt = dbString.split('$')[2];
            var hashedPassword = hash(password, salt);
            if(hashedPassword === dbString){
                res.send('Credential Correcrt!');
